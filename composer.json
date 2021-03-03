@@ -1,0 +1,51 @@
+{
+	"name": "netlte/navigation",
+	"description": "Navigation control",
+	"keywords": ["navigation", "netlte", "nette"],
+	"type": "library",
+	"license": "MIT",
+  	"homepage": "https://github.com/Netlte/Navigation",
+	"authors": [
+		{
+			"name": "Tomáš Holan",
+			"homepage": "https://tomasholan.eu"
+		}
+	],
+	"require": {
+		"php": ">=7.4",
+	  	"netlte/ui": "^1.0"
+	},
+	"require-dev": {
+	  	"nette/di": "^v3.0",
+		"nette/application": "^3.1",
+		"nette/tester": "^2.0",
+		"phpstan/phpstan": "^0.12.59",
+		"phpstan/phpstan-nette": "^0.12.11",
+		"phpstan/phpstan-strict-rules": "^0.12.5",
+		"phpstan/phpstan-deprecation-rules": "^0.12.6",
+		"netlte/coding-standard": "^1.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Netlte\\Navigation\\": "src/"
+		}
+	},
+  	"autoload-dev": {
+		"psr-4": {
+			"Netlte\\Navigation\\Tests\\": "tests/"
+		}
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"scripts": {
+		"tests": "tester -s -p php --colors 1 -C tests/Cases",
+		"cs": "phpcs --standard=vendor/netlte/coding-standard/ruleset.xml --extensions=php --tab-width=4 -sp src tests",
+		"cs-fix": "phpcbf --standard=vendor/netlte/coding-standard/ruleset.xml --extensions=php --tab-width=4 -sp src tests",
+		"analyse": "phpstan analyse",
+		"build": [
+			"@cs",
+			"@analyse",
+			"@tests"
+		]
+	}
+}

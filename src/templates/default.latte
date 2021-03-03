@@ -1,0 +1,35 @@
+{varType \Netlte\Navigation\IManager $manager}
+<ul class="sidebar-menu" data-widget="tree" n:inner-foreach="$manager->getSections() as $section">
+	{varType \Netlte\Navigation\ISection $section}
+	{var bool $renderSection = false}
+
+	{foreach $section->getItems() as $tmp}
+		{php $renderSection = $tmp->isRenderingAllowed()}
+		{breakIf $renderSection}
+	{/foreach}
+
+	<li n:if="$section->getCaption() && $renderSection" class="header">{$section->getCaption()|translate}</li>
+	{var Netlte\Navigation\ISection $item = $section}
+	{block item}
+		<li n:foreach="$item->getItems() as $subitem" n:if="$subitem->isRenderingAllowed()" n:class="$subitem->isTreeView() ? 'treeview', $subitem->isActive() ? 'active', !$subitem->getLink() ? 'bg-danger'">
+
+			{var $link = $subitem->getLink() ? ($subitem->isUrl() ? $subitem->getLink() : $presenter->link($subitem->getLink())) : '#'}
+
+			<a href="{$link}">
+				<i n:if="$subitem->getIcon()" n:class="'fa', 'fa-' . $subitem->getIcon(), $subitem->getIcon()->getColor() ? 'text-' . $subitem->getIcon()->getColor()"></i>
+				<i n:if="!$subitem->getIcon()" class="fa fa-circle-o"></i>
+				<span>{$subitem->getCaption()|translate}</span>
+				<span n:if="$subitem->getLabel() && !$subitem->isTreeView()" n:class="'label', 'pull-right', $subitem->getLabel()->getColor() ? 'bg-' . $subitem->getLabel()->getColor()">
+					{$subitem->getLabel()->getCaption()|translate}
+				</span>
+				<span n:if="$subitem->isTreeView()" class="pull-right-container">
+              		<i class="fa fa-angle-left pull-right"></i>
+            	</span>
+			</a>
+
+			<ul n:if="$subitem->isTreeView()" class="treeview-menu">
+				{include item item => $subitem}
+			</ul>
+		</li>
+	{/block}
+</ul>
