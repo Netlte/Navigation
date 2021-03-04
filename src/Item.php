@@ -21,7 +21,7 @@ class Item implements IItem {
 	private bool $url = false;
 
 	/** @var IItem[] */
-	private array $items;
+	private array $items = [];
 
 	/** @var \Closure[]|callable[]|array */
 	private array $activeConditions = [];
@@ -115,7 +115,7 @@ class Item implements IItem {
 	}
 
 	public function createItem(string $name, string $caption, ?string $insertBefore = null): IItem {
-		$item = new Item($name, $caption);
+		$item = new Item($caption);
 		$this->addItem($name, $item, $insertBefore);
 
 		return $item;
