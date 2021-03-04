@@ -14,7 +14,7 @@ use Netlte\UI\AbstractControl;
  */
 class Navigation extends AbstractControl {
 
-	public const DEFAULT_TEMPLATE = __DIR__ . \DIRECTORY_SEPARATOR . 'default.latte';
+	public const DEFAULT_TEMPLATE = __DIR__ . \DIRECTORY_SEPARATOR . 'templates' . \DIRECTORY_SEPARATOR . 'default.latte';
 
 	public static string $DEFAULT_TEMPLATE = self::DEFAULT_TEMPLATE;
 
