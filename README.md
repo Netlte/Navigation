@@ -50,6 +50,6 @@ composer tests
 
 | [Tomáš Holan](https://github.com/holantomas)                             |
 |--------------------------------------------------------------------------|
-| ![Avatar](https://avatars3.githubusercontent.com/u/5030499?s=100) |
+| ![Avatar](https://avatars3.githubusercontent.com/u/5030499?s=100)        |
 
 
