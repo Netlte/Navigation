@@ -20,6 +20,8 @@ Package contains `Manager` service which holding navigation structure and `Navig
 ```
 composer require netlte/navigation
 ```
+## Documentation
+You can find more info in [.docs](.docs/) folder.
 
 ## Versions
 
@@ -33,14 +35,12 @@ composer require netlte/navigation
 
 Check code quality and run tests
 ```
-composer update --dev
 composer build
 ```
 
 or separately
 
 ```
-composer update --dev
 composer cs
 composer analyse
 composer tests
