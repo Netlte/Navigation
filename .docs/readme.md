@@ -111,8 +111,16 @@ $item->createItem('v1', 'Dashboard v1')
     ->addActiveCondition(function() use ($presenter): bool{
         return $presenter->isLinkCurrent('Homepage:default');
     });
+```
 
-// OR you can define first level item's active condition by theirs children 
+_OR you can define first level item's active condition by theirs children_
+
+```php
+/** @var $presenter \Nette\Application\UI\Presenter */
+$presenter;
+$manager = new \Netlte\Navigation\Manager();
+
+$section = $manager->createSection('main', 'MAIN NAVIGATION');
 
 $item = $section->createItem('dashboard', 'Dashboard')
     ->setIcon('dashboard');
