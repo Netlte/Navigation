@@ -15,6 +15,8 @@ Feel free to use. Your contributions are very welcome. Feel free to publish pull
 
 Package contains `Manager` service which holding navigation structure and `Navigation` control for rendering navigation in HTML using Latte engine
 
+![Screenshot](.docs/screen.png)
+
 ## Install
 
 ```
