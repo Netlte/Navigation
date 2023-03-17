@@ -12,17 +12,17 @@
 		}
 	],
 	"require": {
-		"php": ">=7.4",
+		"php": ">=8.2",
 	  	"netlte/ui": "^1.1"
 	},
 	"require-dev": {
-	  	"nette/di": "^v3.0",
+	  	"nette/di": "^3.1",
 		"nette/application": "^3.1",
-		"nette/tester": "^2.0",
-		"phpstan/phpstan": "^0.12.59",
-		"phpstan/phpstan-nette": "^0.12.11",
-		"phpstan/phpstan-strict-rules": "^0.12.5",
-		"phpstan/phpstan-deprecation-rules": "^0.12.6",
+		"nette/tester": "^2.4",
+		"phpstan/phpstan": "^1.10",
+		"phpstan/phpstan-nette": "^1.2",
+		"phpstan/phpstan-strict-rules": "^1.5",
+		"phpstan/phpstan-deprecation-rules": "^1.1",
 		"netlte/coding-standard": "^1.0"
 	},
 	"autoload": {
@@ -41,11 +41,16 @@
 		"tests": "tester -s -p php --colors 1 -C tests/Cases",
 		"cs": "phpcs --standard=vendor/netlte/coding-standard/ruleset.xml --extensions=php --tab-width=4 -sp src tests",
 		"cs-fix": "phpcbf --standard=vendor/netlte/coding-standard/ruleset.xml --extensions=php --tab-width=4 -sp src tests",
-		"analyse": "phpstan analyse",
+		"analyse": "phpstan analyse --xdebug",
 		"build": [
 			"@cs",
 			"@analyse",
 			"@tests"
 		]
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
 	}
 }
