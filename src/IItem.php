@@ -2,8 +2,8 @@
 
 namespace Netlte\Navigation;
 
+use Netlte\Navigation\Item\IBadge;
 use Netlte\Navigation\Item\IIcon;
-use Netlte\Navigation\Item\ILabel;
 
 /**
  * @author       Tomáš Holan <tomas@holan.dev>
@@ -14,7 +14,7 @@ interface IItem extends \Countable {
 
 	public function getCaption(): string;
 
-	public function getLabel(): ?ILabel;
+	public function getBadge(): ?IBadge;
 
 	public function getIcon(): ?IIcon;
 
@@ -33,7 +33,7 @@ interface IItem extends \Countable {
 
 	public function setCaption(string $caption): self;
 
-	public function setLabel(?string $label = null, ?string $color = null): self;
+	public function setBadge(?string $caption = null, ?string $color = null): self;
 
 	public function setLink(string $link): self;
 

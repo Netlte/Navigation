@@ -5,7 +5,6 @@
 [![Latest stable](https://badgen.net/packagist/v/netlte/navigation)](https://packagist.org/packages/Netlte/Navigation)
 [![Downloads this Month](https://badgen.net/packagist/dm/netlte/navigation)](https://packagist.org/packages/Netlte/Navigation)
 [![Downloads total](https://badgen.net/packagist/dt/netlte/navigation)](https://packagist.org/packages/Netlte/Navigation)
-[![PHPStan](https://badgen.net/badge/PHPStan/enabled/green)](https://github.com/phpstan/phpstan)
 
 ## Credits
 
@@ -27,10 +26,10 @@ You can find more info in [.docs](.docs/) folder.
 
 ## Versions
 
-| State       | AdminLTE | Version | Branch   | PHP      |
-|-------------|----------|---------|----------|----------|
-| stable      |   `2.0`  | `^1.0`  |  `main`  | `>= 7.4` |
-| NoN         |   `3.0`  | `^2.0`  |  `main`  | `>= 8.0` |
+| State  | AdminLTE | Version | Branch   | PHP      |
+|--------|----------|---------|----------|----------|
+| stable |   `2.0`  | `^1.0`  |  `main`  | `>= 7.4` |
+| stable |   `3.0`  | `^2.0`  |  `main`  | `>= 8.2` |
 
 
 ## Tests

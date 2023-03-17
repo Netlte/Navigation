@@ -9,13 +9,10 @@ namespace Netlte\Navigation;
  */
 class Section implements ISection {
 
-	private ?string $caption = null;
-
 	/** @var IItem[] */
 	private array $items = [];
 
-	public function __construct(?string $caption = null) {
-		$this->caption = $caption;
+	public function __construct(private ?string $caption = null) {
 	}
 
 	public function getCaption(): ?string {

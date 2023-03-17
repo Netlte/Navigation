@@ -10,12 +10,7 @@ namespace Netlte\Navigation;
 class Manager implements IManager {
 	
 	/** @var ISection[] */
-	protected array $sections;
-
-
-	public function __construct() {
-		$this->sections = [];
-	}
+	protected array $sections = [];
 
 	/**
 	 * @return ISection[]

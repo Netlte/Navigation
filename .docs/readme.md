@@ -26,7 +26,7 @@ Navigation have easy structure which should fill most use-cases.
 * **Section** - Basic container for menu items
   * **Items** - Links which can have sub-items
     * **Icons** - To provide nice user experience
-    * **Labels** - To inform user about something.
+    * **Badge** - To inform user about something. **(Formerly Label)**
   
 ![Visualized structure](screen.png)
 
@@ -34,7 +34,7 @@ Navigation have easy structure which should fill most use-cases.
 
 ### Manager
 
-This class is used for define navigation structure. It supports icons, labels, menu items, sections etc.
+This class is used for define navigation structure. It supports icons, badges, menu items, sections etc.
 You can define item activation rules and render conditions.
 
 Manager have only one property and it is `sections` which is array of [`\Netlte\Navigation\ISection`](../src/ISection.php).
@@ -83,7 +83,7 @@ $item->createItem('v2', 'Dashboard v2')
 * `icon` - Define icon and color for view
   * internally using instance of [`\Netlte\Navigation\Item\IIcon`](../src/Item/IIcon.php)
   * Default icon provider is [FontAwesome](https://adminlte.io/themes/AdminLTE/pages/UI/icons.html) (Do **NOT** use `fa-` prefix with default template)
-* `label` - Define badge on right side of navigation item with color and some string
+* `badge` - Define badge on right side of navigation item with color and some string
   * internally using instance of [`\Netlte\Navigation\Item\ILable`](../src/Item/ILabel.php)
 * `items` - array of [`\Netlte\Navigation\IItems`](../src/IItem.php) subitems.
 * `activeConditions` - array of `callable` method to define if item is active or not

@@ -2,10 +2,10 @@
 
 namespace Netlte\Navigation;
 
+use Netlte\Navigation\Item\Badge;
+use Netlte\Navigation\Item\IBadge;
 use Netlte\Navigation\Item\Icon;
 use Netlte\Navigation\Item\IIcon;
-use Netlte\Navigation\Item\ILabel;
-use Netlte\Navigation\Item\Label;
 
 /**
  * @author       Tomáš Holan <tomas@holan.dev>
@@ -15,7 +15,7 @@ use Netlte\Navigation\Item\Label;
 class Item implements IItem {
 
 	private string $caption = '';
-	private ?Label $label = null;
+	private ?Badge $badge = null;
 	private ?string $link = null;
 	private ?Icon $icon = null;
 	private bool $url = false;
@@ -31,12 +31,12 @@ class Item implements IItem {
 
 	public function __construct(
 		string $caption = '',
-		?string $label = null,
+		?string $badge = null,
 		?string $link = null,
 		bool $url = false
 	) {
 		$this->caption = $caption;
-		$this->label = $label !== null ? new Label($label) : null;
+		$this->badge = $badge !== null ? new Badge($badge) : null;
 		$this->link = $link;
 		$this->url = $url;
 	}
@@ -45,8 +45,15 @@ class Item implements IItem {
 		return $this->caption;
 	}
 
-	public function getLabel(): ?ILabel {
-		return $this->label;
+    /**
+     * @deprecated use getBadge()
+     */
+    public function getLabel(): ?IBadge {
+        return $this->getBadge();
+    }
+
+	public function getBadge(): ?IBadge {
+		return $this->badge;
 	}
 
 	public function getIcon(): ?IIcon {
@@ -82,11 +89,18 @@ class Item implements IItem {
 		return $this;
 	}
 
-	public function setLabel(?string $label = null, ?string $color = null): IItem {
-		$this->label = $label !== null ? new Label($label) : null;
+    /**
+     * @deprecated use setBadge()
+     */
+    public function setLabel(?string $label = null, ?string $color = null): IItem {
+        return $this->setBadge($label,$color);
+    }
 
-		if ($this->label !== null && $color !== null) {
-			$this->label->setColor($color);
+	public function setBadge(?string $caption = null, ?string $color = null): IItem {
+		$this->badge = $caption !== null ? new Badge($caption) : null;
+
+		if ($this->badge !== null && $color !== null) {
+			$this->badge->setColor($color);
 		}
 
 		return $this;
